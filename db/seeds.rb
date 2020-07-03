@@ -1,7 +1,21 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require 'csv'
+
+puts "Starting seed..."
+
+puts "Delete previous transactions..."
+Transaction.delete_all
+
+puts "Loading transactions..."
+transactions = []
+data_path = File.join(Rails.root, 'db', 'data', 'memory-data.csv')
+CSV.foreach(data_path, headers: true).with_index do |row, idx|
+  transactions << Transaction.new(row.to_h)
+  puts "#{idx}+ transactions loaded" if idx != 0 && (idx % 100_000).zero?
+end
+
+puts "Inserting transactions in db..."
+Transaction.import transactions
+
+puts "#{Transaction.count} transactions created"
+
+puts "Seed completed"
