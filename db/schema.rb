@@ -21,6 +21,9 @@ ActiveRecord::Schema.define(version: 2020_07_03_131116) do
     t.integer "quantity", null: false
     t.integer "unit_price_cents", null: false
     t.datetime "date", null: false
+    t.index ["country"], name: "index_transactions_on_country"
+    t.index ["customer_id"], name: "index_transactions_on_customer_id"
+    t.index ["order_id"], name: "index_transactions_on_order_id"
   end
 
 end

@@ -5,7 +5,7 @@ class TransactionsQuery
 
   def get_total_revenue
     execute_query <<~SQL
-      SELECT SUM(t.quantity * t.unit_price_cents) AS revenue
+      SELECT SUM(t.quantity * t.unit_price_cents) AS total_revenue
       FROM transactions t
       #{filter_statements}
     SQL
@@ -25,7 +25,7 @@ class TransactionsQuery
 
   def get_number_of_distinct_customers
     execute_query <<~SQL
-      SELECT COUNT(DISTINCT t.customer_id) AS distinct_customer
+      SELECT COUNT(DISTINCT t.customer_id) AS count_distinct_customers
       FROM transactions t
       #{filter_statements}
     SQL
