@@ -1,6 +1,6 @@
 class TransactionsQuery
   def initialize(country: nil)
-    @country = country
+    @country = country.to_s
   end
 
   def get_total_revenue
@@ -53,6 +53,6 @@ class TransactionsQuery
   def filter_statements
     return unless @country.present?
 
-    ActiveRecord::Base.sanitize_sql_array(["WHERE t.country = ?", @country])
+    ActiveRecord::Base.sanitize_sql_array(["WHERE lower(t.country) = ?", @country.downcase])
   end
 end
