@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Card = ({ title, content }) => {
+export const SummaryCard = ({ title, content }) => {
   return (
     <div className="card">
       <div className="card-body text-center">

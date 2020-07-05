@@ -41,7 +41,7 @@ class TransactionsQuery
       ORDER BY month_of_transaction ASC
     SQL
 
-    ActiveRecord::Base.connection.exec_query(sql).rows.to_h
+    ActiveRecord::Base.connection.exec_query(sql).rows
   end
 
   private

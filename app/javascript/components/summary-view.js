@@ -12,8 +12,8 @@ export const SummaryView = ({ country }) => {
   }, [country]);
 
   return (
-    <div className="my-4">
-      <h2 className="mb-3">Summary</h2>
+    <div className="my-5">
+      <h2 className="mb-4">Summary</h2>
       {summary ? <SummaryCards summary={summary} /> : <Loader />}
     </div>
   );

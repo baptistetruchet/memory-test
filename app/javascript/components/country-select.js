@@ -22,7 +22,7 @@ export const CountrySelect = ({ country, setCountry }) => {
   );
 
   return (
-    <div className="d-flex align-items-center">
+    <div className="d-flex align-items-center my-5">
       <h2 className="mb-0 mr-4">Country</h2>
       <Select
         value={options.find((opt) => opt.value === country)}

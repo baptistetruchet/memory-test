@@ -13,7 +13,11 @@ module API
     end
 
     def monthly_revenue
-      render json: @query_helper.get_revenue_by_month
+      result = @query_helper.get_revenue_by_month.map do |month, revenue|
+        [month, revenue * 0.01]
+      end
+
+      render json: result
     end
 
     private

@@ -1,5 +1,5 @@
 import React from "react";
-import { Card } from "./summary-card";
+import { SummaryCard } from "./summary-card";
 
 const t = {
   total_revenue: "Revenue",
@@ -13,7 +13,7 @@ export const SummaryCards = ({ summary }) => {
       {Object.entries(summary).map(([key, value]) => {
         return (
           <div key={key} className="col-12 col-md-4">
-            <Card title={t[key] || key} content={value}></Card>
+            <SummaryCard title={t[key] || key} content={value}></SummaryCard>
           </div>
         );
       })}
