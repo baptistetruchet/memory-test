@@ -1,24 +1,19 @@
-# README
+# Setup
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This project runs on ruby 2.6.6
 
-Things you may want to cover:
+```bash
+bundle install
+yarn install
+rails db:setup
+```
 
-* Ruby version
+# Start server
 
-* System dependencies
+You can start server with the following command.
 
-* Configuration
+It will start on http://localhost:5000.
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```bash
+foreman start -f Procfile.dev
+```
