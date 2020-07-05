@@ -31,6 +31,19 @@ class TransactionsQuery
     SQL
   end
 
+  def get_revenue_by_month
+    sql = <<~SQL
+      SELECT strftime("%Y-%m", t.date) AS month_of_transaction,
+             SUM(t.quantity * t.unit_price_cents) AS month_revenue
+      FROM transactions t
+      #{filter_statements}
+      GROUP BY month_of_transaction
+      ORDER BY month_of_transaction ASC
+    SQL
+
+    ActiveRecord::Base.connection.exec_query(sql).rows.to_h
+  end
+
   private
 
   def execute_query(sql)
