@@ -3,6 +3,15 @@ require 'rails_helper'
 RSpec.describe Transaction, type: :model do
   let(:transaction) { build(:transaction) }
 
+  it { should validate_presence_of(:order_id) }
+  it { should validate_presence_of(:customer_id) }
+  it { should validate_presence_of(:country) }
+  it { should validate_presence_of(:product_code) }
+  it { should validate_presence_of(:product_description) }
+  it { should validate_presence_of(:quantity) }
+  it { should validate_presence_of(:unit_price_cents) }
+  it { should validate_presence_of(:date) }
+
   it "should have a valid factory" do
     expect(transaction).to be_valid
     expect { create(:transaction) }.not_to raise_error
