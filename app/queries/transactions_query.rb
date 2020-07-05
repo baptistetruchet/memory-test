@@ -47,7 +47,7 @@ class TransactionsQuery
   private
 
   def execute_query(sql)
-    ActiveRecord::Base.connection.execute(sql).first.values.first
+    ActiveRecord::Base.connection.execute(sql).first.values.first || 0
   end
 
   def filter_statements
