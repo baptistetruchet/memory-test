@@ -10,6 +10,6 @@ class Transaction < ApplicationRecord
   end
 
   def unit_price=(value)
-    self.unit_price_cents = value * 100
+    self.unit_price_cents = (value.to_f * 100).round
   end
 end
