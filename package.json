@@ -8,7 +8,7 @@
     "@rails/webpacker": "4.2.2",
     "axios": "^0.19.2",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
-    "chart.js": "^2.9.3",
+    "chart.js": "^2.9.4",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-chartkick": "^0.4.0",
